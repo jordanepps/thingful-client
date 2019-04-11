@@ -29,7 +29,7 @@ class App extends Component {
 						<p className="red">There was an error! Oh no!</p>
 					)}
 					<Switch>
-						<PrivateRoute exact path={'/'} component={ThingListPage} />
+						<Route exact path={'/'} component={ThingListPage} />
 						<PublicOnlyRoute path={'/login'} component={LoginPage} />
 						<PublicOnlyRoute path={'/register'} component={RegistrationPage} />
 						<PrivateRoute path={'/thing/:thingId'} component={ThingPage} />
