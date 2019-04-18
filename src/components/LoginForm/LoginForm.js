@@ -10,18 +10,18 @@ export default class LoginForm extends Component {
 
 	state = { error: null };
 
-	handleSubmitBasicAuth = ev => {
-		ev.preventDefault();
-		const { user_name, password } = ev.target;
+	// handleSubmitBasicAuth = ev => {
+	// 	ev.preventDefault();
+	// 	const { user_name, password } = ev.target;
 
-		TokenService.saveAuthToken(
-			TokenService.makeBasicAuthToken(user_name.value, password.value)
-		);
+	// 	TokenService.saveAuthToken(
+	// 		TokenService.makeBasicAuthToken(user_name.value, password.value)
+	// 	);
 
-		user_name.value = '';
-		password.value = '';
-		this.props.onLoginSuccess();
-	};
+	// 	user_name.value = '';
+	// 	password.value = '';
+	// 	this.props.onLoginSuccess();
+	// };
 
 	handleSubmitJwtAuth = ev => {
 		ev.preventDefault();
@@ -46,7 +46,7 @@ export default class LoginForm extends Component {
 	render() {
 		const { error } = this.state;
 		return (
-			<form className="LoginForm" onSubmit={this.handleSubmitBasicAuth}>
+			<form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
 				<div role="alert">{error && <p className="red">{error}</p>}</div>
 				<div className="user_name">
 					<label htmlFor="LoginForm__user_name">User name</label>

@@ -4,21 +4,30 @@ import TokenService from '../services/token-service';
 const ThingApiService = {
 	getThings() {
 		return fetch(`${config.API_ENDPOINT}/things`, {
-			headers: { authorization: `bearer ${TokenService.getAuthToken()}` }
+			headers: {
+				authorization: `bearer ${TokenService.getAuthToken()}`,
+				'content-type': 'application/json'
+			}
 		}).then(res =>
 			!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
 		);
 	},
 	getThing(thingId) {
 		return fetch(`${config.API_ENDPOINT}/things/${thingId}`, {
-			headers: { authorization: `bearer ${TokenService.getAuthToken()}` }
+			headers: {
+				authorization: `bearer ${TokenService.getAuthToken()}`,
+				'content-type': 'application/json'
+			}
 		}).then(res =>
 			!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
 		);
 	},
 	getThingReviews(thingId) {
 		return fetch(`${config.API_ENDPOINT}/things/${thingId}/reviews`, {
-			headers: { authorization: `bearer ${TokenService.getAuthToken()}` }
+			headers: {
+				authorization: `bearer ${TokenService.getAuthToken()}`,
+				'content-type': 'application/json'
+			}
 		}).then(res =>
 			!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
 		);
